@@ -4,7 +4,7 @@ import './styles.css'
 
 const Headerbar=()=>(
     <div className="header-container">
-        <Link to="/home">
+        <Link to="/">
         <h1 className="header-title">Bootcamp DevSuperior</h1>
         </Link>
     </div>

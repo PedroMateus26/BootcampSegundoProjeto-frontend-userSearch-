@@ -7,11 +7,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-}
-
-.act-btn-container:hover{
-  
+  outline: none;
+  cursor: pointer;
 }
 
 .act-btn-text {
@@ -21,7 +18,4 @@
   font-size: 16px;
   line-height: 24px;
   color: #ffffff;
- 
 }
-
-

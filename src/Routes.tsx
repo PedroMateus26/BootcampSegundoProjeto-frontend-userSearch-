@@ -12,9 +12,6 @@ const Routes=()=>(
     <Route path="/" exact>
         <Home/>
     </Route>
-    <Route path="/home">
-        <Home/>
-    </Route>
     <Route path="/searchUser">
         <SearchUserPage/>
     </Route>

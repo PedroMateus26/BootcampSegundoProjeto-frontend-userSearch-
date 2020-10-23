@@ -41,7 +41,7 @@
   display: none;
 }
 
-.img-loader{
+.img-loader {
   width: 278px;
   height: 268px;
   background: #dedede;
@@ -51,19 +51,126 @@
   margin-right: 55px;
 }
 
-.user-info-loader{
+.user-info-loader {
   width: 846px;
   height: 253px;
   background: #dedede;
   border-radius: 8px;
   vertical-align: top;
   display: inline-block;
+}
+
+.btn-loader {
+  width: 153px;
+  height: 36px;
+  background: #dedede;
+  border-radius: 8px;
+}
+
+.user-container {
+  width: 1250px;
+  height: 390px;
+  margin-top: 55px;
+  margin-left: 90px;
+  background: #dedede;
+  border-radius: 10px;
+  padding-top: 20px;
+  padding-left: 30px;
+  display: none;
+}
+
+.user-img {
+  width: 280px;
+  height: 280px;
+  background: #dedede;
+  margin-right: 45px;
+  margin-bottom: 15px;
+}
+
+.user-follows-fields {
+  width: 180px;
+  height: 25px;
+  left: 297px;
+  top: 0px;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: inline-block;
   
 }
 
-.btn-loader{
-    width: 153px;
-height: 36px;
-background: #DEDEDE;
-border-radius: 8px;
+.user-follows-text {
+  font-size: 12px;
+line-height: 20px;
+display: flex;
+align-items: center;
+color: #595959;
+justify-content: center;
+align-items: center;
+}
+
+.user-info {
+  width: 870px;
+  height: 240px;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  box-sizing: border-box;
+  border-radius: 6px;
+  margin-top: 18px;
+  align-self: baseline;
+  padding-left: 15px;
+  padding-top: 10px;
+}
+
+.user-info-title {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  color: #1890ff;
+  margin-bottom: 15px;
+}
+
+.user-info-filds {
+  width: 840px;
+  height: 35px;
+  border-radius: 4px;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  display: flex;
+}
+
+.user-info-fields-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: #737373;
+  margin-left: 10;
+}
+
+.user-follows-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: #595959;
+  
+}
+
+.error{
+  
 }
