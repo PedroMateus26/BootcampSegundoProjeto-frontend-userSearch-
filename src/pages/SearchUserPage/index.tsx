@@ -1,40 +1,62 @@
 import React, { useEffect, useRef, useState } from "react";
 import ActionButton from "../../core/components/ActionButton";
+import ImageLoader from "../../core/components/UserLoader/ImageLoader";
+import InfoLoader from "../../core/components/UserLoader/InfoLoader";
 import { UserData } from "../../core/types/UserData";
 import { makeRequest } from "../../core/utils/request";
 import "./styles.css";
 
 const SearchUserPage = () => {
   const [name, setName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [clicked, setClicked] = useState(false);
   const [userData, setUserData] = useState<UserData>();
-  const [status,setStatus]=useState<number>();
+  const [status, setStatus] = useState<number>();
   const idElement = document.getElementById("show-hidden");
   const idElementError = document.getElementById("error");
-  
+  const idElementLoader = document.getElementById("loader");
 
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
   };
 
   const handleOnClick = () => {
-    makeRequest({ url: `${name}` }).then(response=>[setUserData(response.data),setStatus(response.status)]).catch(()=>setStatus(404))
+    setClicked(true);
+    setIsLoading(true);
+    makeRequest({ url: `${name}` })
+      .then((response) => [
+        setUserData(response.data),
+        setStatus(response.status),
+      ])
+      .catch(() => setStatus(404));
     //.then(response=>[setUserData(response.data),setStatus(response.status)]).catch(response=>console.log(response));
     //.then(response=>setUserData(response.data))
     //.then(response=>console.log(response.status))
-    
+  };
+
+  const searchFunction = () => {
+    if (idElement && idElementError && idElementLoader) {
+      if (clicked) {
+        idElementLoader.style.display = "flex";
+        if (status === 200) {
+          idElementError.style.display = "none";
+          idElementLoader.style.display = "none";
+          idElement.style.display = "flex";
+          setStatus(0);
+          setClicked(false);
+        } else if (status === 404) {
+          idElement.style.display = "none";
+          idElementLoader.style.display = "none";
+          idElementError.style.display = "flex";
+          setStatus(0);
+          setClicked(false);
+        }
+      }
+    }
   };
 
   useEffect(() => {
-    if(idElement&&idElementError){
-       if(status===200){
-         idElementError.style.display='none';
-         idElement.style.display='flex';
-       }if(status===404){
-         idElement.style.display='none';
-         idElementError.style.display='flex';
-       };
-    };
-    
+    searchFunction();
   });
 
   return (
@@ -52,10 +74,9 @@ const SearchUserPage = () => {
         <ActionButton title="Encontrar" onClick={handleOnClick} />
       </div>
 
-      <div className="loader-container">
-        <div className="img-loader"></div>
-        <div className="user-info-loader"></div>
-        <div className="btn-loader"></div>
+      <div className="loader-container" id="loader">
+        <ImageLoader />
+        <InfoLoader />
       </div>
 
       <div className="user-container" id="show-hidden">
@@ -96,7 +117,9 @@ const SearchUserPage = () => {
           </div>
         </div>
       </div>
-      <div className="user-container" id="error"><h1>Não há usuário com esse nome</h1></div>
+      <div className="user-container" id="error">
+        <h1>Não há usuário com esse nome</h1>
+      </div>
     </>
   );
 };
