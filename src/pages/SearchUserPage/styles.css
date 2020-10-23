@@ -156,7 +156,7 @@ align-items: center;
   display: flex;
   align-items: center;
   color: #737373;
-  margin-left: 10;
+  margin-left: 15px;
 }
 
 .user-follows-text {
@@ -171,6 +171,16 @@ align-items: center;
   
 }
 
-.error{
-  
+.error-container{
+  width: 840px;
+  height: 35px;
+  background: #dedede;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  margin-top: 55px;
+  margin-left: 90px;
+  box-sizing: border-box;
+  display: none;
+  align-items: center;
+  justify-content: center;
 }

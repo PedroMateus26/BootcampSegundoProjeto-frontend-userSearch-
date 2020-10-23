@@ -37,15 +37,15 @@ const SearchUserPage = () => {
   const searchFunction = () => {
     if (idElement && idElementError && idElementLoader) {
       if (clicked) {
+        idElementError.style.display = "none";
+        idElement.style.display = "none";
         idElementLoader.style.display = "flex";
         if (status === 200) {
-          idElementError.style.display = "none";
           idElementLoader.style.display = "none";
           idElement.style.display = "flex";
           setStatus(0);
           setClicked(false);
         } else if (status === 404) {
-          idElement.style.display = "none";
           idElementLoader.style.display = "none";
           idElementError.style.display = "flex";
           setStatus(0);
@@ -57,10 +57,11 @@ const SearchUserPage = () => {
 
   useEffect(() => {
     searchFunction();
-  });
+  },[clicked,status]);
 
   return (
     <>
+      
       <div className="search-container">
         <h1 className="search-title">Encontre um perfil Github</h1>
         <input
@@ -117,8 +118,8 @@ const SearchUserPage = () => {
           </div>
         </div>
       </div>
-      <div className="user-container" id="error">
-        <h1>Não há usuário com esse nome</h1>
+      <div className="error-container" id="error">
+        <h1>Não há nenhum usuário com esse nome</h1>
       </div>
     </>
   );
